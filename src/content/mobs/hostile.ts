@@ -1,0 +1,210 @@
+/**
+ * Hostile mobs — the 31 creatures that hunt the player.
+ */
+
+import type { MobDef } from '../../core/types';
+import { mobDrop, rareDrop } from '../loot';
+import { BIOME_GROUPS, defineMob, mobTags } from './common';
+
+export const HOSTILE_MOBS: MobDef[] = [
+  defineMob({
+    id: 'breeze', name: 'Breeze', category: 'hostile', behaviour: 'ranged',
+    health: 20, damage: 3, size: [0.6, 1.4],
+    biomes: ['desert', 'desert_lakes', 'badlands'], light: [7, 15], group: [1, 3],
+    drops: [mobDrop('wind_charge', 0, 2)], tags: mobTags('hostile', ['flying']),
+  }),
+  defineMob({
+    id: 'bogged', name: 'Bogged', category: 'hostile', behaviour: 'chase',
+    health: 16, damage: 2, size: [0.6, 1.95],
+    biomes: ['swamp', 'mangrove_swamp', 'dripstone_caves'], light: [0, 7], group: [1, 3],
+    drops: [mobDrop('rotten_flesh', 0, 2)], tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'creaking', name: 'Creaking', category: 'hostile', behaviour: 'digger',
+    health: 20, damage: 3, size: [0.7, 1.4],
+    biomes: ['old_growth_taiga', 'old_growth_birch_forest', 'dark_forest'], light: [0, 7], group: [1, 1],
+    drops: [rareDrop('creaking_heart')], tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'creeper', name: 'Creeper', category: 'hostile', behaviour: 'chase',
+    health: 20, damage: 0, size: [0.6, 1.7],
+    biomes: BIOME_GROUPS.openLand, light: [7, 15], group: [1, 4],
+    drops: [mobDrop('gunpowder', 0, 2)], tags: mobTags('hostile', ['explodes']),
+  }),
+  defineMob({
+    id: 'dry_ghast', name: 'Dry Ghast', category: 'hostile', behaviour: 'chase',
+    health: 10, damage: 4, size: [1.1, 1.1],
+    biomes: ['badlands', 'eroded_badlands', 'desert'], light: [7, 15], group: [1, 2],
+    drops: [mobDrop('ghast_tear', 0, 1)], tags: mobTags('hostile', ['explodes']),
+  }),
+  defineMob({
+    id: 'drowned', name: 'Drowned', category: 'hostile', behaviour: 'chase',
+    health: 20, damage: 3, size: [0.6, 1.95],
+    biomes: BIOME_GROUPS.ocean.concat(['river', 'frozen_river']), light: [0, 8], group: [1, 3],
+    drops: [mobDrop('rotten_flesh', 0, 2)], tags: mobTags('hostile', ['aquatic']),
+  }),
+  defineMob({
+    id: 'elder_guardian', name: 'Elder Guardian', category: 'hostile', behaviour: 'chase',
+    health: 80, damage: 8, knockbackResistance: 0.4, size: [1.995, 1.995],
+    biomes: BIOME_GROUPS.ocean, light: [0, 15], group: [1, 1],
+    drops: [mobDrop('prismarine_shard', 0, 2), rareDrop('heart_of_the_sea')],
+    tags: mobTags('hostile', ['aquatic', 'boss_minion']),
+  }),
+  defineMob({
+    id: 'evoker', name: 'Evoker', category: 'hostile', behaviour: 'ranged',
+    health: 24, damage: 6, size: [0.6, 1.95],
+    biomes: ['wooded_badlands', 'modified_badlands_plateau'], light: [7, 15], group: [1, 1],
+    drops: [rareDrop('emerald')],
+    tags: mobTags('hostile', ['illager']),
+  }),
+  defineMob({
+    id: 'ghast', name: 'Ghast', category: 'hostile', behaviour: 'ranged',
+    health: 10, damage: 6, size: [4, 4],
+    biomes: BIOME_GROUPS.nether, light: [7, 15], dimension: 'nether', group: [1, 4],
+    drops: [mobDrop('ghast_tear', 0, 1), mobDrop('gunpowder', 0, 2)],
+    tags: mobTags('hostile', ['flying']),
+  }),
+  defineMob({
+    id: 'guardian', name: 'Guardian', category: 'hostile', behaviour: 'chase',
+    health: 30, damage: 6, size: [0.85, 0.85],
+    biomes: BIOME_GROUPS.ocean, light: [0, 15], group: [1, 3],
+    drops: [mobDrop('prismarine_shard', 0, 2), rareDrop('prismarine_crystals')],
+    tags: mobTags('hostile', ['aquatic']),
+  }),
+  defineMob({
+    id: 'happy_ghast', name: 'Happy Ghast', category: 'hostile', behaviour: 'flyer',
+    health: 20, damage: 0, size: [4, 4],
+    biomes: ['crimson_forest', 'warped_forest'], light: [7, 15], dimension: 'nether', group: [1, 3],
+    drops: [rareDrop('ghast_tear')], tags: mobTags('hostile', ['flying']),
+  }),
+  defineMob({
+    id: 'hoglin', name: 'Hoglin', category: 'hostile', behaviour: 'chase',
+    health: 40, damage: 6, knockbackResistance: 0.4, size: [1.4, 1.4],
+    biomes: ['crimson_forest'], light: [7, 15], dimension: 'nether', group: [1, 3],
+    drops: [mobDrop('raw_porkchop', 1, 3), mobDrop('leather', 0, 2)],
+    tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'husk', name: 'Husk', category: 'hostile', behaviour: 'chase',
+    health: 20, damage: 3, size: [0.6, 1.95],
+    biomes: BIOME_GROUPS.desert, light: [0, 7], group: [1, 4],
+    drops: [mobDrop('rotten_flesh', 0, 2)], tags: mobTags('hostile', ['undead']),
+  }),
+  defineMob({
+    id: 'magma_cube', name: 'Magma Cube', category: 'hostile', behaviour: 'swarm',
+    health: 16, damage: 3, size: [1, 1],
+    biomes: BIOME_GROUPS.nether, light: [7, 15], dimension: 'nether', group: [1, 4],
+    drops: [mobDrop('magma_cream', 0, 1)], tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'phantom', name: 'Phantom', category: 'hostile', behaviour: 'flyer',
+    health: 20, damage: 6, size: [0.9, 0.5],
+    biomes: BIOME_GROUPS.openLand, light: [0, 15], group: [1, 4],
+    drops: [rareDrop('phantom_membrane')], tags: mobTags('hostile', ['flying']),
+  }),
+  defineMob({
+    id: 'pillager', name: 'Pillager', category: 'hostile', behaviour: 'ranged',
+    health: 24, damage: 4, size: [0.6, 1.95],
+    biomes: ['plains', 'savanna', 'badlands', 'modified_badlands_plateau', 'windswept_hills'],
+    light: [7, 15], group: [1, 4],
+    drops: [rareDrop('arrow')], tags: mobTags('hostile', ['illager']),
+  }),
+  defineMob({
+    id: 'ravager', name: 'Ravager', category: 'hostile', behaviour: 'chase',
+    health: 100, damage: 12, knockbackResistance: 0.4, size: [1.9, 2.2],
+    biomes: ['plains', 'savanna', 'badlands'], light: [7, 15], group: [1, 1],
+    drops: [rareDrop('saddle')],
+    tags: mobTags('hostile', ['illager']),
+  }),
+  defineMob({
+    id: 'shulker', name: 'Shulker', category: 'hostile', behaviour: 'ranged',
+    health: 30, damage: 4, knockbackResistance: 0.5, size: [1, 1],
+    biomes: ['end_barrens', 'the_end'], light: [0, 15], dimension: 'end', group: [1, 1],
+    drops: [rareDrop('shulker_box')],
+    tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'silverfish', name: 'Silverfish', category: 'hostile', behaviour: 'swarm',
+    health: 8, damage: 1, size: [0.4, 0.3],
+    biomes: ['deep_dark', 'dripstone_caves'], light: [0, 7], group: [1, 5],
+    drops: [], tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'skeleton', name: 'Skeleton', category: 'hostile', behaviour: 'ranged',
+    health: 20, damage: 2, size: [0.6, 1.99],
+    biomes: BIOME_GROUPS.openLand.concat(['dripstone_caves', 'deep_dark']), light: [7, 15], group: [1, 4],
+    drops: [mobDrop('bone', 0, 2), mobDrop('arrow', 0, 2)],
+    tags: mobTags('hostile', ['undead']),
+  }),
+  defineMob({
+    id: 'skeleton_horse', name: 'Skeleton Horse', category: 'hostile', behaviour: 'chase',
+    health: 15, damage: 2, size: [1.4, 1.6],
+    biomes: ['swamp', 'mangrove_swamp'], light: [7, 15], group: [1, 2], rideable: true,
+    drops: [mobDrop('bone', 0, 2)], tags: mobTags('hostile', ['undead', 'rideable']),
+  }),
+  defineMob({
+    id: 'slime', name: 'Slime', category: 'hostile', behaviour: 'swarm',
+    health: 16, damage: 3, size: [1, 1],
+    biomes: ['swamp', 'mangrove_swamp', 'dripstone_caves', 'deep_dark'], light: [7, 15], group: [1, 4],
+    drops: [mobDrop('slimeball', 0, 2)], tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'stray', name: 'Stray', category: 'hostile', behaviour: 'ranged',
+    health: 20, damage: 2, size: [0.6, 1.99],
+    biomes: BIOME_GROUPS.cold, light: [7, 15], group: [1, 3],
+    drops: [mobDrop('bone', 0, 2), mobDrop('arrow', 0, 2)],
+    tags: mobTags('hostile', ['undead']),
+  }),
+  defineMob({
+    id: 'vex', name: 'Vex', category: 'hostile', behaviour: 'flyer',
+    health: 14, damage: 4, size: [0.4, 0.8],
+    biomes: ['wooded_badlands', 'modified_badlands_plateau'], light: [7, 15], group: [1, 3],
+    drops: [rareDrop('iron_ingot')], tags: mobTags('hostile', ['flying', 'illager']),
+  }),
+  defineMob({
+    id: 'vindicator', name: 'Vindicator', category: 'hostile', behaviour: 'chase',
+    health: 24, damage: 8, size: [0.6, 1.95],
+    biomes: ['wooded_badlands', 'modified_badlands_plateau'], light: [7, 15], group: [1, 1],
+    drops: [rareDrop('iron_ingot')],
+    tags: mobTags('hostile', ['illager']),
+  }),
+  defineMob({
+    id: 'wet_ghast', name: 'Wet Ghast', category: 'hostile', behaviour: 'swimmer',
+    health: 10, damage: 3, size: [1.1, 1.1],
+    biomes: ['soul_sand_valley', 'basalt_deltas'], light: [7, 15], dimension: 'nether', group: [1, 2],
+    drops: [mobDrop('ghast_tear', 0, 1)], tags: mobTags('hostile', ['aquatic']),
+  }),
+  defineMob({
+    id: 'witch', name: 'Witch', category: 'hostile', behaviour: 'ranged',
+    health: 26, damage: 6, size: [0.6, 1.95],
+    biomes: ['swamp', 'mangrove_swamp', 'dark_forest', 'wooded_badlands'], light: [7, 15], group: [1, 1],
+    drops: [rareDrop('glowstone_dust'), rareDrop('redstone'), rareDrop('sugar')],
+    tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'wither_skeleton', name: 'Wither Skeleton', category: 'hostile', behaviour: 'chase',
+    health: 20, damage: 7, size: [0.7, 2.4],
+    biomes: BIOME_GROUPS.nether,
+    light: [7, 15], dimension: 'nether', group: [1, 3],
+    drops: [mobDrop('bone', 0, 2), mobDrop('coal', 0, 1)],
+    tags: mobTags('hostile', ['undead']),
+  }),
+  defineMob({
+    id: 'zoglin', name: 'Zoglin', category: 'hostile', behaviour: 'chase',
+    health: 40, damage: 6, size: [1.4, 1.4],
+    biomes: ['crimson_forest', 'warped_forest'], light: [7, 15], dimension: 'nether', group: [1, 3],
+    drops: [mobDrop('rotten_flesh', 0, 2)], tags: mobTags('hostile'),
+  }),
+  defineMob({
+    id: 'zombie', name: 'Zombie', category: 'hostile', behaviour: 'chase',
+    health: 20, damage: 3, size: [0.6, 1.95],
+    biomes: BIOME_GROUPS.openLand.concat(['dark_forest', 'dripstone_caves']), light: [0, 7], group: [1, 4],
+    drops: [mobDrop('rotten_flesh', 0, 2)], tags: mobTags('hostile', ['undead']),
+  }),
+  defineMob({
+    id: 'zombie_horse', name: 'Zombie Horse', category: 'hostile', behaviour: 'chase',
+    health: 15, damage: 2, size: [1.4, 1.6],
+    biomes: ['swamp', 'mangrove_swamp'], light: [7, 15], group: [1, 2], rideable: true,
+    drops: [mobDrop('rotten_flesh', 0, 1)], tags: mobTags('hostile', ['undead', 'rideable']),
+  }),
+];

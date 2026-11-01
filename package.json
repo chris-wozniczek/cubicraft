@@ -1,0 +1,28 @@
+{
+  "name": "cubicraft",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CUBICRAFT - a full Minecraft-style voxel game for kids, peer-to-peer over home Wi-Fi",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "node tools/launcher.mjs",
+    "lan": "node tools/launcher.mjs --pair-relay"
+  },
+  "dependencies": {
+    "qrcode": "1.5.4",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.5",
+    "@types/three": "0.187.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  }
+}

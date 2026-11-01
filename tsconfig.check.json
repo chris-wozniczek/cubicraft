@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/core", "src/engine", "src/render", "src/game", "src/content/registry.ts",
+    "src/content/index.ts", "src/content/textures.ts",
+    "src/ui/hud.ts", "src/ui/menus.ts", "src/workers/types.ts", "src/workers/meshWorker.ts",
+    "src/net"
+  ]
+}
